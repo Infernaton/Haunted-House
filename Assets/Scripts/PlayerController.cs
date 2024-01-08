@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private Vector2 _movement;
     private Rigidbody _rigidBody;
+    public bool isHidden;
     [SerializeField] private int m_MovementSpeed;
 
     private void Awake()
@@ -27,6 +28,13 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        _movement = value.Get<Vector2>();
+        if(isHidden)
+        {
+            _movement = Vector2.zero;
+        } else
+        {
+            _movement = value.Get<Vector2>();
+        }
+       
     }
 }
