@@ -27,7 +27,6 @@ public class HiddingSpot : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("COLLISION");
             ShowText(hidenText);
             HidenText(outText);
             canHide = true;
