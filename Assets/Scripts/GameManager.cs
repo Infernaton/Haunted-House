@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
             case GameState.WaitingMonster:
                 break;
             case GameState.InComming:
-                if (!m_Player.isHidden) LoseGame();
+                if (!m_Player.IsHidden) LoseGame();
                 m_Camera.Shake(2f);
                 //Make sound effect
                 break;

@@ -14,16 +14,18 @@ public class Doors : MonoBehaviour
         PlayerController player = GameManager.Instance.Player();
         if (m_IsLock)
         {
-            if (player.hasKey)
+            if (player.HasKey)
             {
                 m_IsLock = false;
-                player.hasKey = false;
+                player.HasKey = false;
+                //Key opening sound
                 Debug.Log("DOOOOR UNLOCK");
             }
 
             // set if player has key -> isLock == true; + remove key State
             else {
                 Debug.Log("MUST HAVE A KEY");
+                //Door close sound
                 return;
             }  
         }

@@ -16,7 +16,8 @@ public class KeyManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.hasKey = true;
+            //Pickup key sound
+            player.HasKey = true;
             Destroy(keyObject);
         }
     }

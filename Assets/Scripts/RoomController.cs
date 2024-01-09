@@ -7,7 +7,7 @@ public class RoomController : MonoBehaviour
 {
     private GameManager _gm;
 
-    [SerializeField] List<Light> m_LightsList;
+    //[SerializeField] List<Light> m_LightsList;
     [SerializeField] GameObject m_Floor;
     public float CameraDistance;
 
