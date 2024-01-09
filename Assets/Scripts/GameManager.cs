@@ -5,7 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] PlayerController m_Player;
+    [SerializeField] CameraManager m_Camera;
     public PlayerController Player() => m_Player;
+    public CameraManager Camera() => m_Camera;
 
     public static GameManager Instance; // A static reference to the GameManager instance
     void Awake()
