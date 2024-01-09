@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Player: {fileID: 1611935707}
+  m_Camera: {fileID: 0}
 --- !u!4 &1398683755
 Transform:
   m_ObjectHideFlags: 0
