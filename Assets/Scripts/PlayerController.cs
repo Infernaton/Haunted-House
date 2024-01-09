@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _movement;
     private Rigidbody _rigidBody;
     public bool isHidden;
+    public bool hasKey;
     [SerializeField] private int m_MovementSpeed;
 
     private void Awake()
@@ -20,11 +21,7 @@ public class PlayerController : MonoBehaviour
         _rigidBody.velocity = new Vector3(_movement.x * m_MovementSpeed, _rigidBody.velocity.y, _movement.y * m_MovementSpeed);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public void OnMove(InputValue value)
     {
@@ -36,5 +33,6 @@ public class PlayerController : MonoBehaviour
             _movement = value.Get<Vector2>();
 
         }
+
     }
 }
