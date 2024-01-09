@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ResetMonster();
+        ResetMonster(); // Launch it after tutorial
     }
 
     private void Update()
@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.InComming:
                 if (!m_Player.isHidden) LoseGame();
+                m_Camera.Shake(2f);
+                //Make ScreenShake + sound effect
                 break;
             case GameState.Menu:
             case GameState.EndGame:
@@ -52,18 +54,22 @@ public class GameManager : MonoBehaviour
     private void FirstWarning()
     {
         Debug.Log("First Warning");
+
+        m_Camera.Shake(1.15f);
         Invoke(nameof(SecondWarning), 10f);
     }
 
     private void SecondWarning()
     {
         Debug.Log("Second Warning");
+        m_Camera.Shake(1.5f);
         Invoke(nameof(LastWarning), 5f);
     }
 
     private void LastWarning()
     {
         Debug.Log("Last Warning");
+        m_Camera.Shake(1.6f);
         Invoke(nameof(InComming), 5f);
     }
 
@@ -71,17 +77,18 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("In Comming");
         _state = GameState.InComming;
-        Invoke(nameof(ResetMonster), 5f);
+        Invoke(nameof(ResetMonster), 3.5f);
     }
 
     private void ResetMonster()
     {
         Debug.Log("Reset");
         _state = GameState.WaitingMonster;
+        m_Camera.Shake(0.4f);
         Invoke(nameof(FirstWarning), 10f);
     }
 
-    private void WinGame()
+    public void WinGame()
     {
         // Finishing Game
     }
