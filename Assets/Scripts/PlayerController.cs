@@ -21,18 +21,14 @@ public class PlayerController : MonoBehaviour
         _rigidBody.velocity = new Vector3(_movement.x * m_MovementSpeed, _rigidBody.velocity.y, _movement.y * m_MovementSpeed);
     }
 
-
-
     public void OnMove(InputValue value)
     {
-        if(isHidden)
+        if(isHidden || GameManager.Instance.IsEndGame())
         {
             _movement = Vector2.zero;
         } else
         {
             _movement = value.Get<Vector2>();
-
         }
-
     }
 }

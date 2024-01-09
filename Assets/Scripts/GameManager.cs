@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public PlayerController Player() => m_Player;
     public CameraManager Camera() => m_Camera;
 
+    public bool IsEndGame() => _state == GameState.EndGame;
 
     public static GameManager Instance; // A static reference to the GameManager instance
     void Awake()
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
             case GameState.InComming:
                 if (!m_Player.isHidden) LoseGame();
                 m_Camera.Shake(2f);
-                //Make ScreenShake + sound effect
+                //Make sound effect
                 break;
             case GameState.Menu:
             case GameState.EndGame:
@@ -90,11 +91,14 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
+        _state = GameState.EndGame;
         // Finishing Game
     }
 
-    private void LoseGame()
+    public void LoseGame()
     {
+        _state = GameState.EndGame;
+        Debug.Log("You Lose !");
         //Set Animation Lose Game
     }
 }
