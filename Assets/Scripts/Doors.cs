@@ -30,15 +30,15 @@ public class Doors : MonoBehaviour
         if (!Compare.GameObjects(c.gameObject, player.gameObject)) return;
         Physics.Raycast(player.transform.position, Vector3.down, out RaycastHit hit);
 
-        if (!Compare.GameObjects(hit.collider.gameObject, m_RoomController1.Floor())) 
+        if (!Compare.GameObjects(hit.collider.gameObject, m_RoomController1.Floor()))
         { 
-            m_RoomController1.gameObject.SetActive(false); 
-            GameManager.Instance.Camera().ChangeZPos(m_RoomController2);
+            m_RoomController1.gameObject.SetActive(false);
+            StartCoroutine(GameManager.Instance.Camera().ChangeZPos(0.2f, m_RoomController2));
         }
-        else if (!Compare.GameObjects(hit.collider.gameObject, m_RoomController2.Floor())) 
+        else if (!Compare.GameObjects(hit.collider.gameObject, m_RoomController2.Floor()))
         { 
             m_RoomController2.gameObject.SetActive(false); 
-            GameManager.Instance.Camera().ChangeZPos(m_RoomController1);
+            StartCoroutine(GameManager.Instance.Camera().ChangeZPos(0.2f, m_RoomController1));
         }
     }
 }

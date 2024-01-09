@@ -511,11 +511,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6250488646417139185, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: CameraDistance
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7550190462219084033, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: m_Name
       value: BigRoom
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550190462219084033, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -736,11 +740,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6250488646417139185, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: CameraDistance
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7550190462219084033, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: m_Name
       value: KeyRoom2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550190462219084033, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -829,7 +837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6250488646417139185, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: CameraDistance
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7550190462219084033, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: m_Name
@@ -837,7 +845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7550190462219084033, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -918,11 +926,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6250488646417139185, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: CameraDistance
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7550190462219084033, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: m_Name
       value: Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550190462219084033, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -975,7 +987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Player: {fileID: 1611935707}
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2147353456}
 --- !u!4 &1398683755
 Transform:
   m_ObjectHideFlags: 0
@@ -1049,7 +1061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6250488646417139185, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: CameraDistance
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7550190462219084033, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: m_Name
@@ -1057,7 +1069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7550190462219084033, guid: 0c88ec39760e2c141ba0f899b51ceb2a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
