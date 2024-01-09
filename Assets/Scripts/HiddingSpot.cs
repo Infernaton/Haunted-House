@@ -18,7 +18,7 @@ public class HiddingSpot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HiddenPlayer(); 
+        HiddenPlayer();
 
     }
 
@@ -37,37 +37,38 @@ public class HiddingSpot : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-                HidenText(hidenText);
-                HidenText(outText);
-                canHide = false;
+            HidenText(hidenText);
+            HidenText(outText);
+            canHide = false;
         }
 
     }
 
     void HiddenPlayer()
     {
-        
+
         if (Keyboard.current.fKey.wasPressedThisFrame && canHide)
         {
             player.isHidden = !player.isHidden;
             toggle = !toggle;
-            if(player.isHidden == true && toggle == true)
+            if (player.isHidden == true && toggle == true)
             {
                 ShowText(outText);
                 HidenText(hidenText);
                 player.transform.gameObject.SetActive(false);
-            } else
+            }
+            else
             {
                 ShowText(hidenText);
                 HidenText(outText);
                 player.transform.gameObject.SetActive(true);
             }
         }
-        
+
 
     }
 
-    void HidenText (GameObject gameObject)
+    void HidenText(GameObject gameObject)
     {
         gameObject.SetActive(false);
     }
