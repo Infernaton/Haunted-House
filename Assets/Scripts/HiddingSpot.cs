@@ -4,8 +4,6 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class HiddingSpot : MonoBehaviour
 {
-
-    public PlayerController player;
     public GameObject hidenText, outText;
     private bool toggle, canHide;
     // Start is called before the first frame update
@@ -22,7 +20,7 @@ public class HiddingSpot : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -32,7 +30,7 @@ public class HiddingSpot : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -40,13 +38,13 @@ public class HiddingSpot : MonoBehaviour
             HidenText(outText);
             canHide = false;
         }
-
     }
 
     void HiddenPlayer()
     {
         if (Keyboard.current.fKey.wasPressedThisFrame && canHide)
         {
+            PlayerController player = GameManager.Instance.Player();
             player.IsHidden = !player.IsHidden;
             toggle = !toggle;
             if (player.IsHidden && toggle)
