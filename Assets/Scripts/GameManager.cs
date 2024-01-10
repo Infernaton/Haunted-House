@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Utils;
+
 public enum GameState
 {
     Menu, // In the gameMenu Before the game itself
@@ -12,12 +15,19 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
     private GameState _state;
+    private RoomController _currentRoom;
     [SerializeField] PlayerController m_Player;
     [SerializeField] CameraManager m_Camera;
+    [SerializeField] Text m_FinalText;
     public PlayerController Player() => m_Player;
     public CameraManager Camera() => m_Camera;
 
     public bool IsEndGame() => _state == GameState.EndGame;
+
+    public void setCurrentRoom(RoomController room)
+    {
+        _currentRoom = room;
+    }
 
     public static GameManager Instance; // A static reference to the GameManager instance
     void Awake()
@@ -32,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        m_FinalText.gameObject.SetActive(false);
         ResetMonster(); // Launch it after tutorial
     }
 
@@ -91,14 +102,25 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
+        CancelInvoke();
         _state = GameState.EndGame;
+        m_FinalText.text = "You Win !!";
+        StartCoroutine(Anim.FadeIn(0.2f, m_FinalText));
         // Finishing Game
     }
 
     public void LoseGame()
     {
+        CancelInvoke();
         _state = GameState.EndGame;
+        m_FinalText.text = "You lose ...";
+        StartCoroutine(Anim.FadeIn(0.2f, m_FinalText));
         Debug.Log("You Lose !");
+        for (int i = 0; i < _currentRoom.Lights().Count; i++)
+        {
+            Light light = _currentRoom.Lights()[i];
+            light.enabled = false;
+        }
         //Set Animation Lose Game
     }
 }
