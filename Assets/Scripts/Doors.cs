@@ -6,11 +6,11 @@ using Utils;
 public class Doors : MonoBehaviour
 {
     [SerializeField] RoomController m_RoomController1, m_RoomController2;
-    [SerializeField] bool m_IsLock = true;
+    [SerializeField] bool m_IsLock;
+    [SerializeField] bool m_IsWinCon;
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("IS A DOOOOOOOOOR");
         PlayerController player = GameManager.Instance.Player();
         if (m_IsLock)
         {
@@ -19,14 +19,20 @@ public class Doors : MonoBehaviour
                 m_IsLock = false;
                 player.HasKey = false;
                 //Key opening sound
-                Debug.Log("DOOOOR UNLOCK");
             } else 
             {
-                Debug.Log("MUST HAVE A KEY");
                 //Door close sound
                 return;
             }  
         }
+
+        //Win the game
+        if (m_IsWinCon)
+        {
+            GameManager.Instance.WinGame();
+            return;
+        }
+
         //Debug.Log(other.gameObject);
         if (Compare.GameObjects(player.gameObject, other.gameObject))
         {
