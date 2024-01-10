@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Utils;
 
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text m_FinalText;
     public PlayerController Player() => m_Player;
     public CameraManager Camera() => m_Camera;
+    public Animator anim;
 
     public bool IsEndGame() => _state == GameState.EndGame;
 
@@ -48,6 +50,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+
+        Debug.Log("DOOR STATE : " + m_Player.isPDO);
         switch (_state)
         {
             case GameState.WaitingMonster:
@@ -61,8 +65,22 @@ public class GameManager : MonoBehaviour
             case GameState.EndGame:
             default: break;
         }
+
+        if (Keyboard.current.oKey.wasPressedThisFrame)
+        {
+            StartCoroutine(OpenDoor());
+        }
     }
 
+
+    IEnumerator OpenDoor()
+    {
+        m_Player.isPDO = true;
+        anim.SetBool("isDoorOpened", this.m_Player.isPDO);
+
+        yield return new WaitForSeconds(2f);
+        m_Player.isPDO = false;
+    }
     private void FirstWarning()
     {
         Debug.Log("First Warning");
@@ -111,16 +129,31 @@ public class GameManager : MonoBehaviour
 
     public void LoseGame()
     {
+        m_Player.isDead = true;
         CancelInvoke();
         _state = GameState.EndGame;
         m_FinalText.text = "You lose ...";
         StartCoroutine(Anim.FadeIn(0.2f, m_FinalText));
         Debug.Log("You Lose !");
-        for (int i = 0; i < _currentRoom.Lights().Count; i++)
+        //for (int i = 0; i < _currentRoom.Lights().Count; i++)
+        //{
+        //    Light light = _currentRoom.Lights()[i];
+        //    light.enabled = false;
+        //}
+        if (_currentRoom != null)
         {
-            Light light = _currentRoom.Lights()[i];
-            light.enabled = false;
+            for (int i = 0; i < _currentRoom.Lights().Count; i++)
+            {
+                Light light = _currentRoom.Lights()[i];
+                light.enabled = false;
+                Debug.Log(light);
+            }
+        } else
+        {
+
+            Debug.Log("NOTHING");
         }
         //Set Animation Lose Game
+        anim.SetBool("isDead", m_Player.isDead);
     }
 }

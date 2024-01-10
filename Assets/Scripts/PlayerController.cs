@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utils;
 
 public class PlayerController : MonoBehaviour
 {
     private Vector2 _movement;
     private Rigidbody _rigidBody;
     public bool IsHidden;
-    public bool HasKey;
-    public bool isWalking, isIdle, isHidding;
+    public bool HasKey, isDead, isPDO;
     public Animator animator;
 
     private float horizontalInput;
@@ -24,9 +24,14 @@ public class PlayerController : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody>();
     }
 
+    private void Start()
+    {
+        isDead = false;
+        isPDO = false;
+    }
+
     private void Update()
     {
-
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
 
@@ -46,7 +51,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidBody.velocity = new Vector3(_movement.x * m_MovementSpeed, _rigidBody.velocity.y, _movement.y * m_MovementSpeed);
+        if (!isDead)
+        {
+            _rigidBody.velocity = new Vector3(_movement.x * m_MovementSpeed, _rigidBody.velocity.y, _movement.y * m_MovementSpeed);
+        }
     }
 
     public void OnMove(InputValue value)

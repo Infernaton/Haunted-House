@@ -782,6 +782,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6884046995652498958, guid: f775d03d39bacf64e8e64c68860c58d9, type: 3}
   m_PrefabInstance: {fileID: 691187999}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &713368095 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1453720499568496147, guid: 6fd6d259c3d0a4a409b9e9bb96aa52a2, type: 3}
+  m_PrefabInstance: {fileID: 6128662203980862583}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &905276963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1157,6 +1162,7 @@ MonoBehaviour:
   m_Player: {fileID: 496732105}
   m_Camera: {fileID: 2147353456}
   m_FinalText: {fileID: 1836660707}
+  anim: {fileID: 713368095}
 --- !u!4 &1398683755
 Transform:
   m_ObjectHideFlags: 0
@@ -1796,6 +1802,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1152450099726076085, guid: 6fd6d259c3d0a4a409b9e9bb96aa52a2, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 713368095}
+    - target: {fileID: 1453720499568496147, guid: 6fd6d259c3d0a4a409b9e9bb96aa52a2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9ae581ff4cf1e4a95b3541fecffecec4, type: 2}
     - target: {fileID: 4813375771890816105, guid: 6fd6d259c3d0a4a409b9e9bb96aa52a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
