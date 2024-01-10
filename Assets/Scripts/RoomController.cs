@@ -21,7 +21,9 @@ public class RoomController : MonoBehaviour
     void Start()
     {
         _gm = GameManager.Instance;
-        if (!m_StartingRoom) FadeOut();
+        if (!m_StartingRoom) 
+            gameObject.SetActive(false);
+            //FadeOut();
     }
 
     public void FadeOut()
