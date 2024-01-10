@@ -261,6 +261,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2047776429}
     m_Modifications:
+    - target: {fileID: 975772019744622024, guid: d6b37f87eabbd9448b4b9840e678219e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2097704120357543997, guid: d6b37f87eabbd9448b4b9840e678219e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.7023091
@@ -305,18 +309,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ROOM 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5203197983046918033, guid: d6b37f87eabbd9448b4b9840e678219e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.138
-      objectReference: {fileID: 0}
-    - target: {fileID: 5203197983046918033, guid: d6b37f87eabbd9448b4b9840e678219e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.104
-      objectReference: {fileID: 0}
-    - target: {fileID: 5689051240578763100, guid: d6b37f87eabbd9448b4b9840e678219e, type: 3}
-      propertyPath: CameraDistance
-      value: 24
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -330,6 +322,11 @@ Transform:
 --- !u!1 &151265036 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5408432144550147187, guid: d6b37f87eabbd9448b4b9840e678219e, type: 3}
+  m_PrefabInstance: {fileID: 151265034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &151265037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4674198723244396503, guid: d6b37f87eabbd9448b4b9840e678219e, type: 3}
   m_PrefabInstance: {fileID: 151265034}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &151265046 stripped
@@ -1021,6 +1018,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4678224013846433251, guid: f775d03d39bacf64e8e64c68860c58d9, type: 3}
+      propertyPath: m_Locker
+      value: 
+      objectReference: {fileID: 151265037}
+    - target: {fileID: 4678224013846433251, guid: f775d03d39bacf64e8e64c68860c58d9, type: 3}
       propertyPath: m_RoomController1
       value: 
       objectReference: {fileID: 151265046}
@@ -1602,6 +1603,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1426012916625010482, guid: 254276bf308852e4e8fdd7a2e9a36306, type: 3}
   m_PrefabInstance: {fileID: 1310523943}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1310523945 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6417187485028371951, guid: 254276bf308852e4e8fdd7a2e9a36306, type: 3}
+  m_PrefabInstance: {fileID: 1310523943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1316754030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1692,6 +1698,10 @@ PrefabInstance:
       propertyPath: m_IsLock
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4678224013846433251, guid: f775d03d39bacf64e8e64c68860c58d9, type: 3}
+      propertyPath: m_Locker
+      value: 
+      objectReference: {fileID: 1310523945}
     - target: {fileID: 4678224013846433251, guid: f775d03d39bacf64e8e64c68860c58d9, type: 3}
       propertyPath: m_IsWinCon
       value: 1

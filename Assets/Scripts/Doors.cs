@@ -6,48 +6,46 @@ using Utils;
 public class Doors : MonoBehaviour
 {
     [SerializeField] RoomController m_RoomController1, m_RoomController2;
-    [SerializeField] bool m_IsLock;
+    [SerializeField] GameObject m_Locker;
     [SerializeField] bool m_IsWinCon;
 
     private void OnTriggerEnter(Collider other)
     {
         PlayerController player = GameManager.Instance.Player();
-        if (m_IsLock)
+
+        if (!Compare.GameObjects(player.gameObject, other.gameObject)) return;
+
+        if (m_Locker != null)
         {
             if (player.HasKey)
             {
-                m_IsLock = false;
+                Destroy(m_Locker);
                 player.HasKey = false;
                 //Key opening sound
-            } else 
+            }
+            else
             {
                 //Door close sound
                 return;
-            }  
+            }
         }
-
         //Win the game
         if (m_IsWinCon)
         {
             GameManager.Instance.WinGame();
             return;
         }
-
-        //Debug.Log(other.gameObject);
-        if (Compare.GameObjects(player.gameObject, other.gameObject))
-        {
-            m_RoomController1.gameObject.SetActive(true);
-            m_RoomController2.gameObject.SetActive(true);
-        }
+        m_RoomController1.gameObject.SetActive(true);
+        m_RoomController2.gameObject.SetActive(true);
     }
 
     private void OnTriggerExit(Collider c)
     {
+        if (m_IsWinCon) return;
         PlayerController player = GameManager.Instance.Player();
         if (!Compare.GameObjects(c.gameObject, player.gameObject)) return;
         Physics.Raycast(player.transform.position, Vector3.down, out RaycastHit hit);
-
-        
+                
         if (hit.collider.gameObject.transform.IsChildOf(m_RoomController2.Floor().transform))
         {
             m_RoomController1.gameObject.SetActive(false);
