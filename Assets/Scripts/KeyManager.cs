@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KeyManager : MonoBehaviour
 {
-    [SerializeField] private GameObject keyObject;
+
     private PlayerController player;
     // Start is called before the first frame update
     void Start()
@@ -16,8 +16,9 @@ public class KeyManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("TOUCH DE BALL COLLISION");
             player.hasKey = true;
-            Destroy(keyObject);
+            Destroy(gameObject);
         }
     }
 }
