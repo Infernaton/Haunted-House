@@ -6,7 +6,8 @@ using Utils;
 public class Doors : MonoBehaviour
 {
     [SerializeField] RoomController m_RoomController1, m_RoomController2;
-    [SerializeField] bool m_IsLock = true;
+    [SerializeField] bool m_IsLock;
+    [SerializeField] bool m_IsWinCon;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +28,14 @@ public class Doors : MonoBehaviour
                 return;
             }  
         }
+
+        //Win the game
+        if (m_IsWinCon)
+        {
+            GameManager.Instance.WinGame();
+            return;
+        }
+
         //Debug.Log(other.gameObject);
         if (Compare.GameObjects(player.gameObject, other.gameObject))
         {
