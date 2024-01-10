@@ -20,10 +20,8 @@ public class Doors : MonoBehaviour
                 player.HasKey = false;
                 //Key opening sound
                 Debug.Log("DOOOOR UNLOCK");
-            }
-
-            // set if player has key -> isLock == true; + remove key State
-            else {
+            } else 
+            {
                 Debug.Log("MUST HAVE A KEY");
                 //Door close sound
                 return;
@@ -44,13 +42,17 @@ public class Doors : MonoBehaviour
         Physics.Raycast(player.transform.position, Vector3.down, out RaycastHit hit);
 
         if (!Compare.GameObjects(hit.collider.gameObject, m_RoomController1.Floor()))
-        { 
+        {
             m_RoomController1.gameObject.SetActive(false);
+            //m_RoomController1.FadeIn();
+            GameManager.Instance.setCurrentRoom(m_RoomController2);
             StartCoroutine(GameManager.Instance.Camera().ChangeZPos(0.2f, m_RoomController2));
         }
         else if (!Compare.GameObjects(hit.collider.gameObject, m_RoomController2.Floor()))
-        { 
-            m_RoomController2.gameObject.SetActive(false); 
+        {
+            m_RoomController2.gameObject.SetActive(false);
+            //m_RoomController2.FadeIn();
+            GameManager.Instance.setCurrentRoom(m_RoomController1);
             StartCoroutine(GameManager.Instance.Camera().ChangeZPos(0.2f, m_RoomController1));
         }
     }
