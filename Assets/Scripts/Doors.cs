@@ -11,7 +11,6 @@ public class Doors : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("IS A DOOOOOOOOOR");
         PlayerController player = GameManager.Instance.Player();
         if (m_IsLock)
         {
@@ -20,10 +19,8 @@ public class Doors : MonoBehaviour
                 m_IsLock = false;
                 player.HasKey = false;
                 //Key opening sound
-                Debug.Log("DOOOOR UNLOCK");
             } else 
             {
-                Debug.Log("MUST HAVE A KEY");
                 //Door close sound
                 return;
             }  
