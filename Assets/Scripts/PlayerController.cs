@@ -9,11 +9,39 @@ public class PlayerController : MonoBehaviour
     private Rigidbody _rigidBody;
     public bool IsHidden;
     public bool HasKey;
+    public bool isWalking, isIdle, isHidding;
+    public Animator animator;
+
+    private float horizontalInput;
+    private float forwardInput;
+
+    public float rotationSpeed;
+
     [SerializeField] private int m_MovementSpeed;
 
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+
+        horizontalInput = Input.GetAxis("Horizontal");
+        forwardInput = Input.GetAxis("Vertical");
+
+        animator.SetFloat("Vertical", forwardInput);
+        animator.SetFloat("Horizontal", horizontalInput);
+        Vector3 movementDirection = new Vector3(horizontalInput, 0, forwardInput);
+        movementDirection.Normalize();
+
+        if (movementDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+
     }
 
     private void FixedUpdate()
@@ -23,13 +51,15 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputValue value)
     {
-        if(IsHidden || GameManager.Instance.IsEndGame())
+        if (IsHidden || GameManager.Instance.IsEndGame())
         {
             _movement = Vector2.zero;
-        } else
+        }
+        else
         {
             // Walk Sound
             _movement = value.Get<Vector2>();
+
         }
     }
 }
