@@ -19,32 +19,11 @@ public class CameraManager : MonoBehaviour
         transform.position = new Vector3(m_Player.transform.position.x, transform.position.y, transform.position.z);
     }
 
-    private void Update()
-    {
-        //TestShake();
-    }
-
     public void Shake(float speed)
     {
         camAnim.SetTrigger("TriggerShake");
         camAnim.SetFloat("ShakeSpeed", speed);
     }
-
-    //private void TestShake()
-    //{
-    //    if (Keyboard.current.qKey.wasPressedThisFrame)
-    //    {
-    //        Shake(1.5f);
-    //        //camAnim.SetFloat("ShakeTime", 0f);
-    //    }
-
-    //    if (Keyboard.current.eKey.wasPressedThisFrame)
-    //    {
-    //        Shake(1.2f);
-    //        //camAnim.SetFloat("ShakeTime", 5f);
-    //    }
-
-    //}
 
     public IEnumerator ChangeZPos(float t, RoomController room)
     {

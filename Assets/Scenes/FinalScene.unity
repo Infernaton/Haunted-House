@@ -269,6 +269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ROOM 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5689051240578763100, guid: d6b37f87eabbd9448b4b9840e678219e, type: 3}
+      propertyPath: CameraDistance
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2105,10 +2109,6 @@ PrefabInstance:
     - target: {fileID: 1232523684079971520, guid: 330c6c1ea4151df4081fdf47bcfb84df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1805645852926326199, guid: 330c6c1ea4151df4081fdf47bcfb84df, type: 3}
-      propertyPath: CameraDistance
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8516805699420050807, guid: 330c6c1ea4151df4081fdf47bcfb84df, type: 3}
       propertyPath: m_Name
