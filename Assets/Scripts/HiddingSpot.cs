@@ -19,7 +19,6 @@ public class HiddingSpot : MonoBehaviour
     void Update()
     {
         HiddenPlayer();
-
     }
 
 
@@ -46,26 +45,25 @@ public class HiddingSpot : MonoBehaviour
 
     void HiddenPlayer()
     {
-
         if (Keyboard.current.fKey.wasPressedThisFrame && canHide)
         {
-            player.isHidden = !player.isHidden;
+            player.IsHidden = !player.IsHidden;
             toggle = !toggle;
-            if (player.isHidden == true && toggle == true)
+            if (player.IsHidden && toggle)
             {
+                //Sound enter hidden state
                 ShowText(outText);
                 HidenText(hidenText);
                 player.transform.gameObject.SetActive(false);
             }
             else
             {
+                //Sound exit hidden state
                 ShowText(hidenText);
                 HidenText(outText);
                 player.transform.gameObject.SetActive(true);
             }
         }
-
-
     }
 
     void HidenText(GameObject gameObject)
