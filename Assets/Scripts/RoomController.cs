@@ -12,6 +12,7 @@ public class RoomController : MonoBehaviour
     public float CameraDistance;
 
     public GameObject Floor() => m_Floor;
+    public List<Light> Lights() => m_LightsList;
 
     void Start()
     {

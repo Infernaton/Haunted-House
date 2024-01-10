@@ -9,13 +9,8 @@ using UnityEngine.InputSystem;
 
 public class CameraManager : MonoBehaviour
 {
-    public Animator camAnim;
+    [SerializeField] Animator camAnim;
     [SerializeField] PlayerController m_Player;
-
-    private void Start()
-    {
-        camAnim = GetComponent<Animator>();
-    }
 
     // Update is called once per frame
     void LateUpdate()
@@ -26,34 +21,30 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-
-        TestShake();
+        //TestShake();
     }
 
-    public void Shake(string shakeName)
+    public void Shake(float speed)
     {
-        camAnim.SetTrigger(shakeName);
+        camAnim.SetTrigger("TriggerShake");
+        camAnim.SetFloat("ShakeSpeed", speed);
     }
 
-    private void TestShake()
-    {
-        if (Keyboard.current.qKey.wasPressedThisFrame )
-        {
-          
-            camAnim.SetTrigger("TriggerShake");
-            camAnim.SetFloat("ShakeSpeed", 1000f);
-            camAnim.SetFloat("ShakeTime", 40f);
+    //private void TestShake()
+    //{
+    //    if (Keyboard.current.qKey.wasPressedThisFrame)
+    //    {
+    //        Shake(1.5f);
+    //        //camAnim.SetFloat("ShakeTime", 0f);
+    //    }
 
-        }
+    //    if (Keyboard.current.eKey.wasPressedThisFrame)
+    //    {
+    //        Shake(1.2f);
+    //        //camAnim.SetFloat("ShakeTime", 5f);
+    //    }
 
-        if (Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            camAnim.SetTrigger("TriggerShake");
-            camAnim.SetFloat("ShakeSpeed", 5f);
-            camAnim.SetFloat("ShakeTime", 30f);
-        }
-
-    }
+    //}
 
     public IEnumerator ChangeZPos(float t, RoomController room)
     {
