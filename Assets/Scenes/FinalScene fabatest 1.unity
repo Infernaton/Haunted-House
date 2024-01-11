@@ -389,6 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26fdb26b6b4f64e63b9aeda1ba884fe5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 7}
   hidenText: {fileID: 2005754168}
   outText: {fileID: 864440045}
 --- !u!65 &291375078
@@ -658,6 +659,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ccf9e9713c58084fb95a53c1f4df35e, type: 3}
+--- !u!95 &545237293 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 5ccf9e9713c58084fb95a53c1f4df35e, type: 3}
+  m_PrefabInstance: {fileID: 545237291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &545237295 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ccf9e9713c58084fb95a53c1f4df35e, type: 3}
@@ -996,24 +1002,6 @@ CapsuleCollider:
   m_Height: 0.11614524
   m_Direction: 1
   m_Center: {x: 0, y: 0.055401057, z: 0}
---- !u!1 &787424503
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2511359927587291190, guid: f188e8048e1f846088071254eeeafc9a, type: 3}
-  m_PrefabInstance: {fileID: 8898826011786969756}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 914045507}
-  - component: {fileID: 914045509}
-  - component: {fileID: 914045508}
-  m_Layer: 0
-  m_Name: clef
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &864440045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,6 +1166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18ea4aaa5973474fb78091e4a1cc4fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
 --- !u!4 &914045507
 Transform:
   m_ObjectHideFlags: 0
@@ -1230,7 +1219,10 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: dc53bbf0923d44db398e878d60935979, type: 3}
---- !u!1 &998338095
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2995443649620056716, guid: f188e8048e1f846088071254eeeafc9a, type: 3}
+  m_PrefabInstance: {fileID: 8898826011786969756}
+  m_PrefabAsset: {fileID: 0}
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1548,7 +1540,7 @@ MonoBehaviour:
   m_Player: {fileID: 7}
   m_Camera: {fileID: 2147353456}
   m_FinalText: {fileID: 2005754170}
---- !u!4 &1398683755
+  anim: {fileID: 545237293}
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1746,7 +1738,7 @@ PrefabInstance:
     - target: {fileID: 1152450099726076085, guid: 6fd6d259c3d0a4a409b9e9bb96aa52a2, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 545237293}
     - target: {fileID: 1152450099726076085, guid: 6fd6d259c3d0a4a409b9e9bb96aa52a2, type: 3}
       propertyPath: rotationSpeed
       value: 900
@@ -2250,14 +2242,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: clef
       objectReference: {fileID: 0}
-    - target: {fileID: 2567704167142863766, guid: f188e8048e1f846088071254eeeafc9a, type: 3}
-      propertyPath: key
-      value: 
-      objectReference: {fileID: 787424503}
-    - target: {fileID: 2567704167142863766, guid: f188e8048e1f846088071254eeeafc9a, type: 3}
-      propertyPath: PickupText
-      value: 
-      objectReference: {fileID: 864440045}
     - target: {fileID: 2995443649620056716, guid: f188e8048e1f846088071254eeeafc9a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
