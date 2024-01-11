@@ -23,8 +23,11 @@ public class GameManager : MonoBehaviour
     public PlayerController Player() => m_Player;
     public CameraManager Camera() => m_Camera;
     public Animator anim;
+    public GameObject b_reload, b_main_menu;
+
 
     public bool IsEndGame() => _state == GameState.EndGame;
+    
 
     public void setCurrentRoom(RoomController room)
     {
@@ -45,13 +48,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         m_FinalText.gameObject.SetActive(false);
+        b_main_menu.SetActive(false);
+        b_reload.SetActive(false);
         ResetMonster(); // Launch it after tutorial
     }
 
     private void Update()
     {
 
-        Debug.Log("DOOR STATE : " + m_Player.isPDO);
         switch (_state)
         {
             case GameState.WaitingMonster:
@@ -122,7 +126,7 @@ public class GameManager : MonoBehaviour
     {
         CancelInvoke();
         _state = GameState.EndGame;
-        m_FinalText.text = "You Win !!";
+        m_FinalText.text = "Tu as gagné !!";
         StartCoroutine(Anim.FadeIn(0.2f, m_FinalText));
         // Finishing Game
     }
@@ -132,27 +136,15 @@ public class GameManager : MonoBehaviour
         m_Player.isDead = true;
         CancelInvoke();
         _state = GameState.EndGame;
-        m_FinalText.text = "You lose ...";
+        m_FinalText.text = "Tu es mort ...";
+        b_main_menu.SetActive(true);
+        b_reload.SetActive(true);
         StartCoroutine(Anim.FadeIn(0.2f, m_FinalText));
-        Debug.Log("You Lose !");
-        //for (int i = 0; i < _currentRoom.Lights().Count; i++)
-        //{
-        //    Light light = _currentRoom.Lights()[i];
-        //    light.enabled = false;
-        //}
-        if (_currentRoom != null)
-        {
             for (int i = 0; i < _currentRoom.Lights().Count; i++)
             {
                 Light light = _currentRoom.Lights()[i];
                 light.enabled = false;
-                Debug.Log(light);
             }
-        } else
-        {
-
-            Debug.Log("NOTHING");
-        }
         //Set Animation Lose Game
         anim.SetBool("isDead", m_Player.isDead);
     }

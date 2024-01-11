@@ -20,7 +20,6 @@ public class Menu : MonoBehaviour
     }
     public void New(Texture texture = null)
     {
-        Debug.Log("test");
         if (texture != null) m_SignBG.texture = texture;
     }
 
@@ -29,6 +28,10 @@ public class Menu : MonoBehaviour
         StartCoroutine(FadeTransition("MenuScene"));
     }
 
+    public void ReloadGame()
+    {
+        StartCoroutine(FadeTransition("FinalScene"));
+    }
     IEnumerator FadeTransition(string scene)
     {
         StartCoroutine(Anim.FadeIn(0.3f, m_BlackScreen));
