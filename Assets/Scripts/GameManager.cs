@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Reset");
         _state = GameState.WaitingMonster;
-        m_Camera.Shake(0.4f);
+        m_Camera.Shake(0.8f);
         Invoke(nameof(FirstWarning), 10f);
     }
 
