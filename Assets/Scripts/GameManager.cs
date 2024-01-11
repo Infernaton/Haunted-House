@@ -129,6 +129,8 @@ public class GameManager : MonoBehaviour
         m_FinalText.text = "Tu as gagné !!";
         StartCoroutine(Anim.FadeIn(0.2f, m_FinalText));
         // Finishing Game
+        b_main_menu.SetActive(true);
+        b_reload.SetActive(true);
     }
 
     public void LoseGame()
