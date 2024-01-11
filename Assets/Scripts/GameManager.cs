@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
         m_Player.isDead = true;
         CancelInvoke();
         _state = GameState.EndGame;
-        m_FinalText.text = "Tu es mort ...";
+        m_FinalText.text = "Tu as perdu ...";
         b_main_menu.SetActive(true);
         b_reload.SetActive(true);
         StartCoroutine(Anim.FadeIn(0.2f, m_FinalText));
